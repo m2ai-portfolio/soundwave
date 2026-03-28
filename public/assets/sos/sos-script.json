@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "title": "Sprinkle of Sage — Store Demo",
+    "description": "A walkthrough demo of the Sprinkle of Sage e-commerce boutique",
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "theme": {
+      "primary": "#4a5e3f",
+      "secondary": "#7a9b6d",
+      "background": "#f4f6f3",
+      "text": "#2d2d2d",
+      "fontFamily": "Georgia, serif"
+    }
+  },
+  "scenes": [
+    {
+      "type": "title",
+      "narration": "Introducing Sprinkle of Sage. A curated boutique for those who appreciate mindful, sustainable living.",
+      "props": {
+        "heading": "Sprinkle of Sage",
+        "subheading": "Curated for a Mindful Home",
+        "background": "#f4f6f3"
+      }
+    },
+    {
+      "type": "showcase",
+      "narration": "The storefront welcomes visitors with a clean, inviting design. Every detail is crafted to reflect the brand's commitment to natural simplicity.",
+      "props": {
+        "images": ["assets/sos/sos-home-hero.png"],
+        "caption": "A welcoming storefront experience",
+        "animation": "zoom"
+      }
+    },
+    {
+      "type": "showcase",
+      "narration": "Customers can browse the full collection, with each product thoughtfully presented. From handmade goods to sustainable essentials, the shop is built for discovery.",
+      "props": {
+        "images": ["assets/sos/sos-shop-grid.png", "assets/sos/sos-product-detail.png"],
+        "caption": "Browse and discover the collection",
+        "animation": "pan"
+      }
+    },
+    {
+      "type": "showcase",
+      "narration": "Adding items to the cart is seamless. Customers can review their selections and proceed to checkout with confidence.",
+      "props": {
+        "images": ["assets/sos/sos-cart.png"],
+        "caption": "Simple, intuitive checkout",
+        "animation": "fade"
+      }
+    },
+    {
+      "type": "showcase",
+      "narration": "Behind the scenes, the admin dashboard gives store owners a clear view of revenue, orders, and product performance at a glance.",
+      "props": {
+        "images": ["assets/sos/sos-admin-dashboard.png"],
+        "caption": "Powerful admin dashboard",
+        "animation": "zoom"
+      }
+    },
+    {
+      "type": "showcase",
+      "narration": "The AI listing assistant is a standout feature. Upload product photos, answer a few guided questions, and the AI generates complete, SEO-optimized product listings in seconds.",
+      "props": {
+        "images": ["assets/sos/sos-ai-assistant.png"],
+        "caption": "AI-powered product listings",
+        "animation": "zoom"
+      }
+    },
+    {
+      "type": "callToAction",
+      "narration": "Sprinkle of Sage. Where mindful commerce meets modern technology. Visit the store today.",
+      "props": {
+        "heading": "Shop the Collection",
+        "buttonText": "Visit Sprinkle of Sage",
+        "url": "sprinkleofsage.com"
+      }
+    }
+  ]
+}

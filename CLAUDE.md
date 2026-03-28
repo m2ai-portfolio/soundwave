@@ -1,6 +1,6 @@
-# Soundwave — Programmatic Video Production Engine
+# Remotion — Programmatic Video Production Engine
 
-Standalone Remotion project that produces videos from text briefs. Pipeline: Brief → Gemini script → ElevenLabs TTS → React scenes → MP4.
+Standalone Remotion project that produces videos from text briefs or screen recordings. Pipeline: Brief → Gemini script → Gemini TTS → React scenes → MP4. Also supports post-production on raw screen recordings (video clips + TTS narration overlay).
 
 ## Quick Reference
 
@@ -42,7 +42,7 @@ Brief (text)
 
 ## Core Contract: SoundwaveScript JSON
 
-All video content is defined as a `SoundwaveScript` JSON object (see `src/lib/types.ts`). This is the contract between LLM output and Remotion input. Scene types: `title`, `showcase`, `callToAction`.
+All video content is defined as a `SoundwaveScript` JSON object (see `src/lib/types.ts`). This is the contract between LLM output and Remotion input. Scene types: `title`, `showcase`, `callToAction`, `screenRecording` (planned).
 
 Scene duration = TTS audio length + 1.5s padding (configurable in `src/lib/theme.ts`).
 
@@ -83,3 +83,4 @@ Swap providers by changing the instantiation in `scripts/pipeline.ts`.
 - Audio files cached by narration text hash — re-running same brief reuses audio
 - All renders tracked in SQLite (scripts, audio_files, renders tables)
 - Images go in `public/assets/` — referenced in scripts as `"assets/filename.png"`
+- Video clips go in `public/clips/` — referenced in scripts as `"clips/filename.mp4"`
