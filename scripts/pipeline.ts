@@ -15,7 +15,7 @@ import { generateScript } from "./generate-script";
 import { generateAllAudio } from "./generate-audio";
 import { computeSceneTiming, renderVideo } from "./render-video";
 import { ensureAssets } from "./ensure-assets";
-import { ElevenLabsTTS } from "../providers/elevenlabs";
+import { GeminiTTS } from "../providers/gemini-tts";
 import { soundwaveScriptSchema } from "../src/lib/schema";
 import { getDb } from "./db";
 import type { SoundwaveScript } from "../src/lib/types";
@@ -24,8 +24,7 @@ import type { SoundwaveScript } from "../src/lib/types";
 config({ path: path.resolve(process.env.HOME || "~", ".env.shared") });
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const ELEVENLABS_API_KEY = process.env.ELEVENLABS_API_KEY;
-const ELEVENLABS_VOICE_ID = process.env.ELEVENLABS_VOICE_ID;
+// TTS: Gemini TTS (uses same GEMINI_API_KEY as script generation)
 
 async function main() {
   const rawArgs = process.argv.slice(2);
@@ -102,12 +101,12 @@ async function main() {
       durationMs: 0,
     }));
   } else {
-    if (!ELEVENLABS_API_KEY || !ELEVENLABS_VOICE_ID) {
-      console.error("ELEVENLABS_API_KEY or ELEVENLABS_VOICE_ID not found in ~/.env.shared");
+    if (!GEMINI_API_KEY) {
+      console.error("GEMINI_API_KEY not found in ~/.env.shared (needed for TTS)");
       process.exit(1);
     }
-    console.log(`\n[2/4] Generating TTS audio...`);
-    const ttsProvider = new ElevenLabsTTS(ELEVENLABS_API_KEY, ELEVENLABS_VOICE_ID);
+    console.log(`\n[2/4] Generating TTS audio (Gemini)...`);
+    const ttsProvider = new GeminiTTS(GEMINI_API_KEY);
     audioManifest = await generateAllAudio(script, runId, ttsProvider, db, audioDir);
 
     // Copy audio files to public/ so Remotion's staticFile() can find them

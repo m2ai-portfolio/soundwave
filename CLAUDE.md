@@ -7,7 +7,7 @@ Standalone Remotion project that produces videos from text briefs. Pipeline: Bri
 - **Framework:** Remotion 4.0 (React-based video rendering)
 - **Language:** TypeScript
 - **LLM:** Gemini via `@google/genai` (GEMINI_API_KEY in ~/.env.shared)
-- **TTS:** ElevenLabs (ELEVENLABS_API_KEY + ELEVENLABS_VOICE_ID in ~/.env.shared)
+- **TTS:** Gemini TTS (uses same GEMINI_API_KEY — no extra credentials needed)
 - **Database:** SQLite at `data/soundwave.db`
 - **Output:** MP4 videos in `output/`
 
@@ -49,8 +49,9 @@ Scene duration = TTS audio length + 1.5s padding (configurable in `src/lib/theme
 ## TTS Provider Interface
 
 `providers/tts-interface.ts` defines the interface. Implementations:
-- `providers/elevenlabs.ts` — active
-- `providers/google-tts.ts` — stub
+- `providers/gemini-tts.ts` — active (default, uses GEMINI_API_KEY)
+- `providers/elevenlabs.ts` — available (needs credits)
+- `providers/google-tts.ts` — stub (Google Cloud TTS, needs service account)
 - `providers/openai-tts.ts` — stub
 
 Swap providers by changing the instantiation in `scripts/pipeline.ts`.
