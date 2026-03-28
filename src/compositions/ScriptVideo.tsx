@@ -4,6 +4,7 @@ import { resolveTheme } from "../lib/theme";
 import { TitleScene } from "../scenes/TitleScene";
 import { ShowcaseScene } from "../scenes/ShowcaseScene";
 import { CallToActionScene } from "../scenes/CallToActionScene";
+import { ScreenRecordingScene } from "../scenes/ScreenRecordingScene";
 
 export interface ScriptVideoProps extends Record<string, unknown> {
   script: SoundwaveScript;
@@ -23,6 +24,8 @@ const SceneRenderer: React.FC<{
       return <ShowcaseScene props={scene.props} theme={resolved} />;
     case "callToAction":
       return <CallToActionScene props={scene.props} theme={resolved} />;
+    case "screenRecording":
+      return <ScreenRecordingScene props={scene.props} theme={resolved} />;
     default:
       return null;
   }

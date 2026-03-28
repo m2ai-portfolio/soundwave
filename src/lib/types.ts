@@ -40,6 +40,13 @@ export interface CTAProps {
   logo?: string;
 }
 
+export interface ScreenRecordingProps {
+  clip: string;              // path in public/clips/
+  startTime?: number;        // seconds into clip to start (default 0)
+  endTime?: number;          // seconds into clip to end (default: end of clip)
+  muteOriginal?: boolean;    // strip original audio (default true)
+}
+
 // --- Scene Types ---
 
 export interface TitleScene {
@@ -60,7 +67,13 @@ export interface CallToActionScene {
   props: CTAProps;
 }
 
-export type Scene = TitleScene | ShowcaseScene | CallToActionScene;
+export interface ScreenRecordingScene {
+  type: "screenRecording";
+  narration: string;
+  props: ScreenRecordingProps;
+}
+
+export type Scene = TitleScene | ShowcaseScene | CallToActionScene | ScreenRecordingScene;
 
 // --- Full Script ---
 

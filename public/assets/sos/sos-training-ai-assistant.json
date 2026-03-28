@@ -1,0 +1,66 @@
+{
+  "meta": {
+    "title": "Sprinkle of Sage — AI Listing Assistant Guide",
+    "description": "Training walkthrough showing how to use the AI Listing Assistant to generate product listings",
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "theme": {
+      "primary": "#4a5e3f",
+      "secondary": "#7a9b6d",
+      "background": "#1a1a1a",
+      "text": "#ffffff",
+      "fontFamily": "Georgia, serif"
+    }
+  },
+  "scenes": [
+    {
+      "type": "title",
+      "narration": "Welcome to Sprinkle of Sage. In this guide, we'll walk through how to use the AI Listing Assistant to create product listings in just a few clicks.",
+      "props": {
+        "heading": "AI Listing Assistant",
+        "subheading": "A Quick Guide for Store Owners",
+        "background": "#1a1a1a"
+      }
+    },
+    {
+      "type": "screenRecording",
+      "narration": "Start by clicking AI Assistant in the sidebar. You'll see two sections: Product Photos on the left, and Guided Prompts below. On the right is where your generated listing will appear. First, upload a product photo by clicking or dragging an image into the upload area.",
+      "props": {
+        "clip": "clips/sos-recording1.mp4",
+        "startTime": 0,
+        "endTime": 18,
+        "muteOriginal": true
+      }
+    },
+    {
+      "type": "screenRecording",
+      "narration": "Next, fill in the four guided prompts. Describe what the product is, who it's for, the key features or materials, and the overall vibe you want the listing to convey. These prompts help the AI understand your product and generate accurate, on-brand descriptions.",
+      "props": {
+        "clip": "clips/sos-recording1.mp4",
+        "startTime": 18,
+        "endTime": 65,
+        "muteOriginal": true
+      }
+    },
+    {
+      "type": "screenRecording",
+      "narration": "Once you've filled in the prompts, click Generate Listing Draft. The AI will take a moment to process your inputs. When it's done, your complete listing appears on the right, including a title, full description, suggested price, category, and an SEO preview. From here you can review, edit, and publish directly to your store.",
+      "props": {
+        "clip": "clips/sos-recording1.mp4",
+        "startTime": 65,
+        "endTime": 101,
+        "muteOriginal": true
+      }
+    },
+    {
+      "type": "callToAction",
+      "narration": "That's all there is to it. The AI Listing Assistant handles the heavy lifting so you can focus on your products. If you have any questions, reach out anytime.",
+      "props": {
+        "heading": "You're All Set!",
+        "buttonText": "Start Creating Listings",
+        "url": "sprinkleofsage.com"
+      }
+    }
+  ]
+}

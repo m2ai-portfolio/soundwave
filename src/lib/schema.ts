@@ -49,10 +49,22 @@ const ctaSceneSchema = z.object({
   }),
 });
 
+const screenRecordingSceneSchema = z.object({
+  type: z.literal("screenRecording"),
+  narration: z.string(),
+  props: z.object({
+    clip: z.string(),
+    startTime: z.number().optional(),
+    endTime: z.number().optional(),
+    muteOriginal: z.boolean().optional(),
+  }),
+});
+
 const sceneSchema = z.discriminatedUnion("type", [
   titleSceneSchema,
   showcaseSceneSchema,
   ctaSceneSchema,
+  screenRecordingSceneSchema,
 ]);
 
 export const soundwaveScriptSchema = z.object({

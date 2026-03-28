@@ -1,8 +1,18 @@
 import path from "path";
+import { execSync } from "child_process";
 import { bundle } from "@remotion/bundler";
 import { renderMedia, selectComposition } from "@remotion/renderer";
 import type { SoundwaveScript, SceneWithTiming } from "../src/lib/types";
 import { SCENE_PADDING_SECONDS, MIN_SCENE_SECONDS } from "../src/lib/theme";
+
+function getVideoDurationSeconds(filePath: string): number {
+  const result = execSync(
+    `npx remotion ffprobe -v quiet -print_format json -show_format "${filePath}"`,
+    { encoding: "utf-8" },
+  );
+  const parsed = JSON.parse(result);
+  return parseFloat(parsed.format.duration);
+}
 
 interface AudioManifest {
   sceneIndex: number;
@@ -23,11 +33,23 @@ export function computeSceneTiming(
     const audio = audioManifest.find((a) => a.sceneIndex === i);
     const audioDurationMs = audio?.durationMs || 0;
 
-    // Duration = audio + padding, minimum MIN_SCENE_SECONDS
-    const durationSeconds = Math.max(
-      MIN_SCENE_SECONDS,
-      audioDurationMs / 1000 + SCENE_PADDING_SECONDS,
-    );
+    // For screen recordings, duration = clip segment length (not TTS-driven)
+    // For other scenes, duration = TTS audio + padding
+    let durationSeconds: number;
+
+    if (scene.type === "screenRecording") {
+      const clipPath = path.resolve("public", scene.props.clip);
+      const clipDuration = getVideoDurationSeconds(clipPath);
+      const start = scene.props.startTime || 0;
+      const end = scene.props.endTime || clipDuration;
+      durationSeconds = end - start;
+    } else {
+      durationSeconds = Math.max(
+        MIN_SCENE_SECONDS,
+        audioDurationMs / 1000 + SCENE_PADDING_SECONDS,
+      );
+    }
+
     const durationInFrames = Math.ceil(durationSeconds * fps);
 
     // Audio path relative to public/ for staticFile()
