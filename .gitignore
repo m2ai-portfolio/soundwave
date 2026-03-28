@@ -3,5 +3,14 @@ dist
 .DS_Store
 .env
 
-# Ignore the output video from Git but not videos you import into src/.
+# Generated outputs
+output/
+audio/
+public/audio/
+data/soundwave.db
+data/soundwave.db-wal
+data/soundwave.db-shm
+
+# Remotion
 out
+.remotion
