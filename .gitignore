@@ -11,6 +11,10 @@ data/soundwave.db
 data/soundwave.db-wal
 data/soundwave.db-shm
 
+# Large media assets (use rclone gdrive: for backup)
+public/clips/
+public/assets/gstack/
+
 # Remotion
 out
 .remotion
