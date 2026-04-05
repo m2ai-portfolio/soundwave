@@ -112,6 +112,7 @@ export interface AsciinemaProps {
   headerTitle?: string;
   speed?: number;
   startTime?: number;
+  endTime?: number;            // seconds into cast to stop (default: end of cast)
 }
 
 // --- Scene Types ---

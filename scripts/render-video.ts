@@ -54,7 +54,8 @@ export function computeSceneTiming(
         const speed = scene.props.speed ?? 1;
         const startTime = scene.props.startTime ?? 0;
         const castTotalDuration = getCastDuration(parsed.events);
-        const castPlaybackSeconds = (castTotalDuration - startTime) / speed;
+        const endTime = scene.props.endTime ?? castTotalDuration;
+        const castPlaybackSeconds = (endTime - startTime) / speed;
         // Take max of cast duration and audio duration
         const audioDurationSeconds = audioDurationMs / 1000;
         durationSeconds = Math.max(

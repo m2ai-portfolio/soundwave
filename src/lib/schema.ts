@@ -141,6 +141,7 @@ const asciinemaSceneSchema = z.object({
     headerTitle: z.string().optional(),
     speed: z.number().optional(),
     startTime: z.number().optional(),
+    endTime: z.number().optional(),
   }),
 });
 

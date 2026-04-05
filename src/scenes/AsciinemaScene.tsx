@@ -51,8 +51,10 @@ export const AsciinemaScene: React.FC<{
     loadCast();
   }, [loadCast]);
 
-  // Compute current playback time from frame
-  const currentTime = startTime + (frame / fps) * speed;
+  // Compute current playback time from frame, clamped to endTime
+  const endTime = props.endTime;
+  const rawTime = startTime + (frame / fps) * speed;
+  const currentTime = endTime != null ? Math.min(rawTime, endTime) : rawTime;
   const terminalText = loaded ? getTerminalStateAtTime(events, currentTime, 1) : "";
 
   // Fade in/out

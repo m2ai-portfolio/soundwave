@@ -29,6 +29,7 @@
         "cast": "casts/model-audit-demo.cast",
         "theme": "monokai",
         "startTime": 78,
+        "endTime": 105,
         "speed": 2.5,
         "showHeader": true,
         "headerTitle": "Claude Code — /model-audit"
@@ -65,6 +66,7 @@
         "cast": "casts/model-audit-demo.cast",
         "theme": "monokai",
         "startTime": 111,
+        "endTime": 140,
         "speed": 3,
         "showHeader": true,
         "headerTitle": "Scanning codebase..."
@@ -89,6 +91,7 @@
         "cast": "casts/model-audit-demo.cast",
         "theme": "monokai",
         "startTime": 265,
+        "endTime": 285,
         "speed": 2,
         "showHeader": true,
         "headerTitle": "Verdict Table"
@@ -158,6 +161,7 @@
         "cast": "casts/model-audit-demo.cast",
         "theme": "monokai",
         "startTime": 287,
+        "endTime": 300,
         "speed": 1.8,
         "showHeader": true,
         "headerTitle": "STALE Model Deep-Dive"
@@ -195,6 +199,7 @@
         "cast": "casts/model-audit-demo.cast",
         "theme": "monokai",
         "startTime": 362,
+        "endTime": 425,
         "speed": 1.5,
         "showHeader": true,
         "headerTitle": "Audit Summary"
