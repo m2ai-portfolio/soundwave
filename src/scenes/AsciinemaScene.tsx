@@ -10,7 +10,7 @@ import {
 } from "remotion";
 import type { AsciinemaProps, SoundwaveTheme } from "../lib/types";
 import { parseCastFile, getTerminalStateAtTime } from "../lib/asciinema-parser";
-import type { CastEvent } from "../lib/asciinema-parser";
+import type { CastEvent, CastHeader } from "../lib/asciinema-parser";
 import { terminalThemes } from "../lib/terminal-themes";
 
 export const AsciinemaScene: React.FC<{
@@ -22,6 +22,7 @@ export const AsciinemaScene: React.FC<{
 
   const [handle] = useState(() => delayRender("Loading cast file"));
   const [events, setEvents] = useState<CastEvent[]>([]);
+  const [castHeader, setCastHeader] = useState<CastHeader>({ version: 2, width: 80, height: 25 });
   const [loaded, setLoaded] = useState(false);
 
   const speed = props.speed ?? 1;
@@ -38,6 +39,7 @@ export const AsciinemaScene: React.FC<{
       const text = await response.text();
       const parsed = parseCastFile(text);
       setEvents(parsed.events);
+      setCastHeader(parsed.header);
       setLoaded(true);
       continueRender(handle);
     } catch (err) {
@@ -55,7 +57,9 @@ export const AsciinemaScene: React.FC<{
   const endTime = props.endTime;
   const rawTime = startTime + (frame / fps) * speed;
   const currentTime = endTime != null ? Math.min(rawTime, endTime) : rawTime;
-  const terminalText = loaded ? getTerminalStateAtTime(events, currentTime, 1) : "";
+  const terminalText = loaded
+    ? getTerminalStateAtTime(events, currentTime, 1, castHeader.width, castHeader.height)
+    : "";
 
   // Fade in/out
   const fadeIn = interpolate(frame, [0, 15], [0, 1], {

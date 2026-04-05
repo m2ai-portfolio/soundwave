@@ -1,4 +1,4 @@
-import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
+import { AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
 import type { Annotation } from "../../lib/types";
 
 const FADE_FRAMES = 5;
@@ -39,7 +39,8 @@ const RenderAnnotation: React.FC<{
   annotation: Annotation;
   frame: number;
   sceneDuration: number;
-}> = ({ annotation, frame, sceneDuration }) => {
+  videoHeight: number;
+}> = ({ annotation, frame, sceneDuration, videoHeight }) => {
   const opacity = getAnnotationOpacity(
     frame,
     annotation.startFrame,
@@ -112,27 +113,22 @@ const RenderAnnotation: React.FC<{
       );
     }
     case "text": {
-      const fontSize = annotation.fontSize ?? 4;
+      // fontSize is specified in intended pixels at render resolution.
+      // SVG viewBox is 100x100, so scale: 1 SVG unit = videoHeight/100 pixels.
+      const pxSize = annotation.fontSize ?? 24;
+      const svgFontSize = (pxSize / videoHeight) * 100;
       return (
-        <foreignObject
+        <text
           x={annotation.x}
           y={annotation.y}
-          width={100 - annotation.x}
-          height={100 - annotation.y}
+          fill={color}
+          fontSize={svgFontSize}
+          fontFamily="Inter, system-ui, sans-serif"
+          fontWeight={700}
           opacity={opacity}
         >
-          <div
-            style={{
-              color,
-              fontSize: `${fontSize}px`,
-              fontFamily: "Inter, system-ui, sans-serif",
-              fontWeight: 700,
-              whiteSpace: "pre-wrap",
-            }}
-          >
-            {annotation.text}
-          </div>
-        </foreignObject>
+          {annotation.text}
+        </text>
       );
     }
     default:
@@ -145,6 +141,7 @@ export const AnnotationOverlay: React.FC<AnnotationOverlayProps> = ({
   sceneDurationInFrames,
 }) => {
   const frame = useCurrentFrame();
+  const { height: videoHeight } = useVideoConfig();
 
   return (
     <AbsoluteFill style={{ pointerEvents: "none", zIndex: 10 }}>
@@ -159,6 +156,7 @@ export const AnnotationOverlay: React.FC<AnnotationOverlayProps> = ({
             annotation={annotation}
             frame={frame}
             sceneDuration={sceneDurationInFrames}
+            videoHeight={videoHeight}
           />
         ))}
       </svg>

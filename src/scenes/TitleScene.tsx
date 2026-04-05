@@ -93,7 +93,7 @@ export const TitleScene: React.FC<{
       {props.subheading && (
         <p
           style={{
-            color: theme.secondary,
+            color: theme.text,
             fontSize: 36,
             fontWeight: 400,
             textAlign: "center",

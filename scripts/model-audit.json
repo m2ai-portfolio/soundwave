@@ -52,7 +52,7 @@
           "x": 75,
           "y": 42,
           "text": "4 audit modes",
-          "fontSize": 24,
+          "fontSize": 42,
           "startFrame": 90,
           "endFrame": 240,
           "color": "#FF6B35"
@@ -77,7 +77,7 @@
           "x": 50,
           "y": 8,
           "text": "Scanning 25+ projects...",
-          "fontSize": 22,
+          "fontSize": 40,
           "startFrame": 30,
           "endFrame": 180,
           "color": "#4CAF50"
@@ -114,7 +114,7 @@
           "x": 65,
           "y": 24,
           "text": "!! STALE",
-          "fontSize": 26,
+          "fontSize": 44,
           "startFrame": 30,
           "endFrame": 120,
           "color": "#F44336"
@@ -147,7 +147,7 @@
           "x": 65,
           "y": 34,
           "text": "!! LEGACY",
-          "fontSize": 26,
+          "fontSize": 44,
           "startFrame": 150,
           "endFrame": 270,
           "color": "#FF9800"
@@ -185,7 +185,7 @@
           "x": 50,
           "y": 85,
           "text": "Exact file, line number, and fix suggestion",
-          "fontSize": 20,
+          "fontSize": 36,
           "startFrame": 60,
           "endFrame": 300,
           "color": "#4CAF50"
@@ -210,7 +210,7 @@
           "x": 50,
           "y": 8,
           "text": "Priority: STALE → LEGACY → Tier Mismatch",
-          "fontSize": 22,
+          "fontSize": 40,
           "startFrame": 30,
           "endFrame": 450,
           "color": "#FF6B35"
@@ -232,7 +232,7 @@
           "x": 5,
           "y": 28,
           "text": "Fix these first",
-          "fontSize": 18,
+          "fontSize": 36,
           "startFrame": 60,
           "endFrame": 200,
           "color": "#F44336"
