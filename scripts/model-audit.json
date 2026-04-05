@@ -1,0 +1,247 @@
+{
+  "meta": {
+    "title": "Model Audit Training Video",
+    "description": "Training video demonstrating the /model-audit skill for LLM model validation",
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "theme": {
+      "primary": "#FF6B35",
+      "secondary": "#1A1A2E",
+      "background": "#0F0F1A",
+      "text": "#F5F5F5",
+      "fontFamily": "Inter"
+    }
+  },
+  "scenes": [
+    {
+      "type": "title",
+      "narration": "Are you using the right LLM for each job? Model Audit scans your entire codebase, finds every LLM integration, and tells you if you're overpaying, underdelivering, or running stale model IDs that silently break your API calls.",
+      "props": {
+        "heading": "/model-audit",
+        "subheading": "Are you using the right LLM for each job?"
+      }
+    },
+    {
+      "type": "asciinema",
+      "narration": "Start by running slash model-audit from Claude Code. You get a menu with four check types. Tier Check validates weight class within each provider. Task Fit checks if the right model handles each job. Cost Accuracy reviews token spend. Or run all checks at once.",
+      "props": {
+        "cast": "casts/model-audit-demo.cast",
+        "theme": "monokai",
+        "startTime": 78,
+        "speed": 2.5,
+        "showHeader": true,
+        "headerTitle": "Claude Code — /model-audit"
+      },
+      "annotations": [
+        {
+          "kind": "box",
+          "x": 5,
+          "y": 45,
+          "width": 90,
+          "height": 35,
+          "startFrame": 60,
+          "endFrame": 240,
+          "color": "#FF6B35",
+          "strokeWidth": 3,
+          "opacity": 0.8
+        },
+        {
+          "kind": "text",
+          "x": 75,
+          "y": 42,
+          "text": "4 audit modes",
+          "fontSize": 24,
+          "startFrame": 90,
+          "endFrame": 240,
+          "color": "#FF6B35"
+        }
+      ]
+    },
+    {
+      "type": "asciinema",
+      "narration": "The scan searches your entire project directory for model strings and SDK imports. It checks for Anthropic, OpenAI, Google, open-source models, and more. Here it found over 80 raw integration points across 25 projects.",
+      "props": {
+        "cast": "casts/model-audit-demo.cast",
+        "theme": "monokai",
+        "startTime": 111,
+        "speed": 3,
+        "showHeader": true,
+        "headerTitle": "Scanning codebase..."
+      },
+      "annotations": [
+        {
+          "kind": "text",
+          "x": 50,
+          "y": 8,
+          "text": "Scanning 25+ projects...",
+          "fontSize": 22,
+          "startFrame": 30,
+          "endFrame": 180,
+          "color": "#4CAF50"
+        }
+      ]
+    },
+    {
+      "type": "asciinema",
+      "narration": "Results land in a verdict table. Each row shows the file, model string, provider, tier, and status. VALID means you're good. STALE means the model ID doesn't exist anymore, so your API calls are silently failing or hitting a fallback. LEGACY means it works but has been superseded.",
+      "props": {
+        "cast": "casts/model-audit-demo.cast",
+        "theme": "monokai",
+        "startTime": 265,
+        "speed": 2,
+        "showHeader": true,
+        "headerTitle": "Verdict Table"
+      },
+      "annotations": [
+        {
+          "kind": "box",
+          "x": 82,
+          "y": 28,
+          "width": 16,
+          "height": 6,
+          "startFrame": 30,
+          "endFrame": 120,
+          "color": "#F44336",
+          "strokeWidth": 3,
+          "opacity": 0.9
+        },
+        {
+          "kind": "text",
+          "x": 65,
+          "y": 24,
+          "text": "!! STALE",
+          "fontSize": 26,
+          "startFrame": 30,
+          "endFrame": 120,
+          "color": "#F44336"
+        },
+        {
+          "kind": "arrow",
+          "x1": 78,
+          "y1": 27,
+          "x2": 83,
+          "y2": 30,
+          "startFrame": 30,
+          "endFrame": 120,
+          "color": "#F44336",
+          "strokeWidth": 3
+        },
+        {
+          "kind": "box",
+          "x": 82,
+          "y": 38,
+          "width": 16,
+          "height": 6,
+          "startFrame": 150,
+          "endFrame": 270,
+          "color": "#FF9800",
+          "strokeWidth": 3,
+          "opacity": 0.9
+        },
+        {
+          "kind": "text",
+          "x": 65,
+          "y": 34,
+          "text": "!! LEGACY",
+          "fontSize": 26,
+          "startFrame": 150,
+          "endFrame": 270,
+          "color": "#FF9800"
+        }
+      ]
+    },
+    {
+      "type": "asciinema",
+      "narration": "For every problem it finds, model audit gives you the full context. Here it caught anthropic slash claude-4-sonnet, which is not a valid model ID. It shows the closest valid models, the exact file and line number, and the action required to fix it. Stale models are priority one because they cause silent API failures.",
+      "props": {
+        "cast": "casts/model-audit-demo.cast",
+        "theme": "monokai",
+        "startTime": 287,
+        "speed": 1.8,
+        "showHeader": true,
+        "headerTitle": "STALE Model Deep-Dive"
+      },
+      "annotations": [
+        {
+          "kind": "box",
+          "x": 3,
+          "y": 25,
+          "width": 94,
+          "height": 30,
+          "startFrame": 15,
+          "endFrame": 300,
+          "color": "#F44336",
+          "strokeWidth": 2,
+          "opacity": 0.6,
+          "fill": "rgba(244, 67, 54, 0.05)"
+        },
+        {
+          "kind": "text",
+          "x": 50,
+          "y": 85,
+          "text": "Exact file, line number, and fix suggestion",
+          "fontSize": 20,
+          "startFrame": 60,
+          "endFrame": 300,
+          "color": "#4CAF50"
+        }
+      ]
+    },
+    {
+      "type": "asciinema",
+      "narration": "The final summary prioritizes your action items. Stale models first because they're broken. Legacy models second because they're accumulating technical debt. Then tier mismatches where you're overpaying or risking quality. This run found 3 stale models, 5 legacy models, and a handful of review items across 39 integration points.",
+      "props": {
+        "cast": "casts/model-audit-demo.cast",
+        "theme": "monokai",
+        "startTime": 362,
+        "speed": 1.5,
+        "showHeader": true,
+        "headerTitle": "Audit Summary"
+      },
+      "annotations": [
+        {
+          "kind": "text",
+          "x": 50,
+          "y": 8,
+          "text": "Priority: STALE → LEGACY → Tier Mismatch",
+          "fontSize": 22,
+          "startFrame": 30,
+          "endFrame": 450,
+          "color": "#FF6B35"
+        },
+        {
+          "kind": "box",
+          "x": 3,
+          "y": 30,
+          "width": 94,
+          "height": 12,
+          "startFrame": 60,
+          "endFrame": 200,
+          "color": "#F44336",
+          "strokeWidth": 3,
+          "opacity": 0.7
+        },
+        {
+          "kind": "text",
+          "x": 5,
+          "y": 28,
+          "text": "Fix these first",
+          "fontSize": 18,
+          "startFrame": 60,
+          "endFrame": 200,
+          "color": "#F44336"
+        }
+      ]
+    },
+    {
+      "type": "callToAction",
+      "narration": "Stop guessing which models you're running. Run slash model-audit and know in two minutes. Stale models found, legacy debt flagged, tier mismatches caught. Every integration point, every provider, one command.",
+      "props": {
+        "heading": "Run /model-audit today",
+        "buttonText": "Try it in Claude Code",
+        "url": "https://claude.com/claude-code"
+      }
+    }
+  ]
+}
