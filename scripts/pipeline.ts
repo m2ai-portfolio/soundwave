@@ -109,19 +109,21 @@ async function main() {
     const ttsProvider = new GeminiTTS(GEMINI_API_KEY);
     audioManifest = await generateAllAudio(script, runId, ttsProvider, db, audioDir);
 
-    // Copy audio files to public/ so Remotion's staticFile() can find them
+    // Copy audio files to public/ so Remotion's staticFile() can find them.
+    // Cached audio may live under a previous run's directory -- always copy to
+    // the current run's public dir and update filePath so render-video derives
+    // the correct staticFile() path.
     const publicAudioDir = path.resolve("public", "audio", runId);
     if (!existsSync(publicAudioDir)) mkdirSync(publicAudioDir, { recursive: true });
     for (const a of audioManifest) {
       if (a.filePath) {
-        // Custom audio files are already in public/ -- check if path is already under public
         const publicDir = path.resolve("public");
         if (a.filePath.startsWith(publicDir)) {
-          // Already in public, no copy needed -- update filePath to be relative for staticFile()
           continue;
         }
         const dest = path.join(publicAudioDir, path.basename(a.filePath));
         cpSync(a.filePath, dest);
+        a.filePath = dest;
       }
     }
   }
