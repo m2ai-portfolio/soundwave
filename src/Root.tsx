@@ -44,6 +44,17 @@ const sampleScript: SoundwaveScript = {
       },
     },
     {
+      type: "asciinema",
+      narration: "Watch the pipeline in action",
+      props: {
+        cast: "casts/sample.cast",
+        theme: "dark",
+        showHeader: true,
+        headerTitle: "soundwave pipeline",
+        speed: 1,
+      },
+    },
+    {
       type: "callToAction",
       narration: "Get started today",
       props: {

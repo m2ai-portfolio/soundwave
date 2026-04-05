@@ -3,6 +3,7 @@ import { existsSync, mkdirSync } from "fs";
 import path from "path";
 import type { TTSProvider, AudioResult } from "../providers/tts-interface";
 import type { SoundwaveScript } from "../src/lib/types";
+import { getAudioDurationMs } from "../src/lib/audio-utils";
 import Database from "better-sqlite3";
 
 interface AudioManifest {
@@ -32,6 +33,25 @@ export async function generateAllAudio(
 
   for (let i = 0; i < script.scenes.length; i++) {
     const scene = script.scenes[i];
+
+    // Custom audio file: resolve from public/, probe duration, skip TTS
+    if (scene.audioFile) {
+      const audioFilePath = path.resolve("public", scene.audioFile);
+      if (!existsSync(audioFilePath)) {
+        console.warn(`  Scene ${i}: custom audio not found: ${audioFilePath}`);
+      } else {
+        const durationMs = getAudioDurationMs(audioFilePath);
+        console.log(`  Scene ${i}: using custom audio (${durationMs}ms)`);
+        results.push({
+          sceneIndex: i,
+          narration: scene.narration || "",
+          filePath: audioFilePath,
+          durationMs,
+        });
+        continue;
+      }
+    }
+
     const narration = scene.narration;
 
     if (!narration || narration.trim() === "") {

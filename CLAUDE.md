@@ -42,9 +42,18 @@ Brief (text)
 
 ## Core Contract: SoundwaveScript JSON
 
-All video content is defined as a `SoundwaveScript` JSON object (see `src/lib/types.ts`). This is the contract between LLM output and Remotion input. Scene types: `title`, `showcase`, `callToAction`, `screenRecording` (planned).
+All video content is defined as a `SoundwaveScript` JSON object (see `src/lib/types.ts`). This is the contract between LLM output and Remotion input. Scene types: `title`, `showcase`, `callToAction`, `screenRecording`, `asciinema`.
 
 Scene duration = TTS audio length + 1.5s padding (configurable in `src/lib/theme.ts`).
+
+### Custom Audio
+Any scene can set `audioFile` (path relative to `public/`) to use a pre-recorded audio file instead of TTS. The pipeline probes its duration and skips TTS generation for that scene.
+
+### Annotations
+Any scene can include an `annotations` array with overlay shapes (arrow, box, circle, text). Coordinates are percentage-based (0-100). Each annotation supports `startFrame`, `endFrame`, `color`, `strokeWidth`, and `opacity`. Rendered as SVG overlay via `AnnotationOverlay.tsx`.
+
+### Asciinema Scenes
+The `asciinema` scene type renders animated terminal recordings from `.cast` files (asciicast v2 format). Props: `cast` (path in `public/casts/`), `theme` (dark/light/monokai/solarized), `fontSize`, `showHeader`, `headerTitle`, `speed`, `startTime`. Duration = max(cast playback, audio duration) + padding.
 
 ## TTS Provider Interface
 

@@ -114,6 +114,12 @@ async function main() {
     if (!existsSync(publicAudioDir)) mkdirSync(publicAudioDir, { recursive: true });
     for (const a of audioManifest) {
       if (a.filePath) {
+        // Custom audio files are already in public/ -- check if path is already under public
+        const publicDir = path.resolve("public");
+        if (a.filePath.startsWith(publicDir)) {
+          // Already in public, no copy needed -- update filePath to be relative for staticFile()
+          continue;
+        }
         const dest = path.join(publicAudioDir, path.basename(a.filePath));
         cpSync(a.filePath, dest);
       }

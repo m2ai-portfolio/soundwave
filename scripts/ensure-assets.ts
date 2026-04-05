@@ -28,6 +28,16 @@ export function ensureAssets(script: SoundwaveScript): string[] {
     }
   }
 
+  // Check asciinema cast files
+  for (const scene of script.scenes) {
+    if (scene.type === "asciinema") {
+      const castPath = path.join(publicDir, scene.props.cast);
+      if (!existsSync(castPath)) {
+        console.warn(`  Warning: cast file not found: ${scene.props.cast}`);
+      }
+    }
+  }
+
   for (const imgPath of imagePaths) {
     const fullPath = path.join(publicDir, imgPath);
     if (!existsSync(fullPath)) {

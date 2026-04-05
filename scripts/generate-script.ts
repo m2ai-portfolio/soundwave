@@ -33,7 +33,14 @@ Schema:
 
     // Call to action — closing CTA
     { "type": "callToAction", "narration": "voiceover text", "props": { "heading": string, "url"?: string, "buttonText"?: string, "logo"?: string } }
+
+    // Asciinema scene — animated terminal recording
+    { "type": "asciinema", "narration": "voiceover text", "props": { "cast": "casts/filename.cast", "theme"?: "dark"|"light"|"monokai"|"solarized", "fontSize"?: number, "showHeader"?: boolean, "headerTitle"?: string, "speed"?: number, "startTime"?: number } }
   ]
+
+  // Optional per-scene fields (any scene type):
+  // "audioFile": "audio/custom-narration.mp3"  — use a custom audio file instead of TTS
+  // "annotations": [...]  — overlay annotations (arrow, box, circle, text) with percentage coordinates (0-100)
 }
 
 Guidelines:

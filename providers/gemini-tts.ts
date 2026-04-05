@@ -2,19 +2,11 @@ import { GoogleGenAI } from "@google/genai";
 import { writeFileSync } from "fs";
 import { execSync } from "child_process";
 import type { TTSProvider, TTSOptions, AudioResult } from "./tts-interface";
+import { getAudioDurationMs } from "../src/lib/audio-utils";
 
 // Gemini TTS voices: Zephyr, Puck, Charon, Kore, Fenrir, Aoede, Leda,
 // Orus, Schedar, Achernar, Gacrux, Procyon, etc.
 const DEFAULT_VOICE = "Kore";
-
-function getAudioDurationMs(filePath: string): number {
-  const result = execSync(
-    `npx remotion ffprobe -v quiet -print_format json -show_format "${filePath}"`,
-    { encoding: "utf-8" },
-  );
-  const parsed = JSON.parse(result);
-  return Math.round(parseFloat(parsed.format.duration) * 1000);
-}
 
 function pcmToWav(pcmBuffer: Buffer, sampleRate: number): Buffer {
   const numChannels = 1;

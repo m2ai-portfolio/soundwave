@@ -1,9 +1,11 @@
 import path from "path";
+import { readFileSync } from "fs";
 import { execSync } from "child_process";
 import { bundle } from "@remotion/bundler";
 import { renderMedia, selectComposition } from "@remotion/renderer";
 import type { SoundwaveScript, SceneWithTiming } from "../src/lib/types";
 import { SCENE_PADDING_SECONDS, MIN_SCENE_SECONDS } from "../src/lib/theme";
+import { parseCastFile, getCastDuration } from "../src/lib/asciinema-parser";
 
 function getVideoDurationSeconds(filePath: string): number {
   const result = execSync(
@@ -43,6 +45,29 @@ export function computeSceneTiming(
       const start = scene.props.startTime || 0;
       const end = scene.props.endTime || clipDuration;
       durationSeconds = end - start;
+    } else if (scene.type === "asciinema") {
+      // Parse cast file to determine playback duration
+      const castPath = path.resolve("public", scene.props.cast);
+      try {
+        const castContent = readFileSync(castPath, "utf-8");
+        const parsed = parseCastFile(castContent);
+        const speed = scene.props.speed ?? 1;
+        const startTime = scene.props.startTime ?? 0;
+        const castTotalDuration = getCastDuration(parsed.events);
+        const castPlaybackSeconds = (castTotalDuration - startTime) / speed;
+        // Take max of cast duration and audio duration
+        const audioDurationSeconds = audioDurationMs / 1000;
+        durationSeconds = Math.max(
+          MIN_SCENE_SECONDS,
+          Math.max(castPlaybackSeconds, audioDurationSeconds) + SCENE_PADDING_SECONDS,
+        );
+      } catch {
+        // Fallback to audio-based timing if cast file can't be read
+        durationSeconds = Math.max(
+          MIN_SCENE_SECONDS,
+          audioDurationMs / 1000 + SCENE_PADDING_SECONDS,
+        );
+      }
     } else {
       durationSeconds = Math.max(
         MIN_SCENE_SECONDS,

@@ -5,6 +5,8 @@ import { TitleScene } from "../scenes/TitleScene";
 import { ShowcaseScene } from "../scenes/ShowcaseScene";
 import { CallToActionScene } from "../scenes/CallToActionScene";
 import { ScreenRecordingScene } from "../scenes/ScreenRecordingScene";
+import { AsciinemaScene } from "../scenes/AsciinemaScene";
+import { AnnotationOverlay } from "../components/common/AnnotationOverlay";
 
 export interface ScriptVideoProps extends Record<string, unknown> {
   script: SoundwaveScript;
@@ -26,6 +28,8 @@ const SceneRenderer: React.FC<{
       return <CallToActionScene props={scene.props} theme={resolved} />;
     case "screenRecording":
       return <ScreenRecordingScene props={scene.props} theme={resolved} />;
+    case "asciinema":
+      return <AsciinemaScene props={scene.props} theme={resolved} />;
     default:
       return null;
   }
@@ -48,6 +52,12 @@ export const ScriptVideo: React.FC<ScriptVideoProps> = ({
             <Audio src={staticFile(st.audioPath)} volume={1} />
           )}
           <SceneRenderer scene={st.scene} theme={script.meta.theme} />
+          {st.scene.annotations && st.scene.annotations.length > 0 && (
+            <AnnotationOverlay
+              annotations={st.scene.annotations}
+              sceneDurationInFrames={st.durationInFrames}
+            />
+          )}
         </Sequence>
       ))}
     </AbsoluteFill>
