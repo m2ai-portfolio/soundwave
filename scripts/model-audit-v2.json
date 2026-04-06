@@ -34,20 +34,20 @@
       "annotations": [
         {
           "kind": "box",
-          "x": 12,
-          "y": 35,
-          "width": 76,
-          "height": 45,
+          "x": 9,
+          "y": 22,
+          "width": 56,
+          "height": 22,
           "startFrame": 180,
           "endFrame": 540,
           "color": "#FF6B35",
           "strokeWidth": 3,
-          "opacity": 0.85
+          "opacity": 0.9
         },
         {
           "kind": "text",
-          "x": 50,
-          "y": 88,
+          "x": 34,
+          "y": 50,
           "text": "4 audit modes",
           "fontSize": 44,
           "startFrame": 180,
@@ -58,67 +58,45 @@
     },
     {
       "type": "screenRecording",
-      "narration": "The scan walks your codebase for every LLM integration. Results land in a verdict table. File, model, provider, tier, status. Valid means good. Stale means the model ID does not exist anymore. Here it caught a stale anthropic entry with the exact file, line number, and fix.",
+      "narration": "The scan walks your codebase for every LLM integration. Results land in a verdict table with file, model, provider, and status. Here it caught a stale anthropic entry with the exact file, line number, and the suggested fix.",
       "props": {
         "clip": "clips/model-audit-revised.mp4",
         "startTime": 103,
-        "endTime": 128,
+        "endTime": 121,
         "muteOriginal": true
       },
       "annotations": [
         {
           "kind": "text",
-          "x": 50,
-          "y": 6,
-          "text": "Scan -> Verdict Table -> Stale Fix",
-          "fontSize": 42,
+          "x": 29,
+          "y": 8,
+          "text": "Scan + Verdict Table",
+          "fontSize": 38,
           "startFrame": 0,
-          "endFrame": 750,
+          "endFrame": 540,
           "color": "#4CAF50"
         },
         {
           "kind": "box",
-          "x": 12,
-          "y": 38,
-          "width": 76,
-          "height": 30,
-          "startFrame": 180,
-          "endFrame": 450,
+          "x": 9,
+          "y": 20,
+          "width": 82,
+          "height": 62,
+          "startFrame": 240,
+          "endFrame": 540,
           "color": "#F44336",
-          "strokeWidth": 3,
-          "opacity": 0.75
+          "strokeWidth": 4,
+          "opacity": 0.85
         },
         {
           "kind": "text",
-          "x": 50,
+          "x": 24,
           "y": 94,
           "text": "!! STALE model flagged",
-          "fontSize": 46,
-          "startFrame": 180,
-          "endFrame": 450,
+          "fontSize": 42,
+          "startFrame": 240,
+          "endFrame": 540,
           "color": "#F44336"
-        },
-        {
-          "kind": "box",
-          "x": 12,
-          "y": 45,
-          "width": 76,
-          "height": 40,
-          "startFrame": 480,
-          "endFrame": 750,
-          "color": "#4CAF50",
-          "strokeWidth": 3,
-          "opacity": 0.8
-        },
-        {
-          "kind": "text",
-          "x": 50,
-          "y": 94,
-          "text": "File + line + fix",
-          "fontSize": 44,
-          "startFrame": 480,
-          "endFrame": 750,
-          "color": "#4CAF50"
         }
       ]
     },
@@ -134,33 +112,11 @@
       "annotations": [
         {
           "kind": "text",
-          "x": 50,
-          "y": 6,
+          "x": 26,
+          "y": 8,
           "text": "Action Item 2: Task Fit",
-          "fontSize": 46,
+          "fontSize": 38,
           "startFrame": 0,
-          "endFrame": 750,
-          "color": "#FF9800"
-        },
-        {
-          "kind": "box",
-          "x": 12,
-          "y": 30,
-          "width": 76,
-          "height": 50,
-          "startFrame": 240,
-          "endFrame": 750,
-          "color": "#FF9800",
-          "strokeWidth": 3,
-          "opacity": 0.7
-        },
-        {
-          "kind": "text",
-          "x": 50,
-          "y": 94,
-          "text": "Wrong weight class = wasted spend",
-          "fontSize": 40,
-          "startFrame": 240,
           "endFrame": 750,
           "color": "#FF9800"
         }
@@ -178,33 +134,11 @@
       "annotations": [
         {
           "kind": "text",
-          "x": 50,
-          "y": 6,
+          "x": 20,
+          "y": 8,
           "text": "Action Item 3: Cost + Accuracy",
-          "fontSize": 46,
+          "fontSize": 36,
           "startFrame": 0,
-          "endFrame": 750,
-          "color": "#00BCD4"
-        },
-        {
-          "kind": "box",
-          "x": 12,
-          "y": 30,
-          "width": 76,
-          "height": 50,
-          "startFrame": 240,
-          "endFrame": 750,
-          "color": "#00BCD4",
-          "strokeWidth": 3,
-          "opacity": 0.7
-        },
-        {
-          "kind": "text",
-          "x": 50,
-          "y": 94,
-          "text": "Prioritized by savings impact",
-          "fontSize": 42,
-          "startFrame": 240,
           "endFrame": 750,
           "color": "#00BCD4"
         }
@@ -215,8 +149,7 @@
       "narration": "Stop guessing which models you are running. Run slash model-audit and know in two minutes.",
       "props": {
         "heading": "Run /model-audit today",
-        "buttonText": "Try it in Claude Code",
-        "url": "https://claude.com/claude-code"
+        "buttonText": "Try it in Claude Code"
       }
     }
   ]
