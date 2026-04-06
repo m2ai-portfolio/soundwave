@@ -1,0 +1,223 @@
+{
+  "meta": {
+    "title": "Model Audit Training Video v2",
+    "description": "Training video demonstrating the /model-audit skill using screen recording post-production",
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "theme": {
+      "primary": "#FF6B35",
+      "secondary": "#F5F5F5",
+      "background": "#0F0F1A",
+      "text": "#F5F5F5",
+      "fontFamily": "Inter"
+    }
+  },
+  "scenes": [
+    {
+      "type": "title",
+      "narration": "Model Audit. Are you using the right LLM for each job?",
+      "props": {
+        "heading": "/model-audit",
+        "subheading": "Are you using the right LLM for each job?"
+      }
+    },
+    {
+      "type": "screenRecording",
+      "narration": "Run slash model-audit from Claude Code. You get a menu with four options. Tier check validates weight class. Task fit matches models to jobs. Cost and accuracy reviews token spend. And check docs verifies every model ID against live provider documentation.",
+      "props": {
+        "clip": "clips/model-audit-revised.mp4",
+        "startTime": 82,
+        "endTime": 102,
+        "muteOriginal": true
+      },
+      "annotations": [
+        {
+          "kind": "box",
+          "x": 12,
+          "y": 35,
+          "width": 76,
+          "height": 45,
+          "startFrame": 180,
+          "endFrame": 540,
+          "color": "#FF6B35",
+          "strokeWidth": 3,
+          "opacity": 0.85
+        },
+        {
+          "kind": "text",
+          "x": 50,
+          "y": 88,
+          "text": "4 audit modes",
+          "fontSize": 44,
+          "startFrame": 180,
+          "endFrame": 540,
+          "color": "#FF6B35"
+        }
+      ]
+    },
+    {
+      "type": "screenRecording",
+      "narration": "The scan walks your codebase for every LLM integration. Results land in a verdict table. File, model, provider, tier, status. Valid means good. Stale means the model ID does not exist anymore. Here it caught a stale anthropic entry with the exact file, line number, and fix.",
+      "props": {
+        "clip": "clips/model-audit-revised.mp4",
+        "startTime": 103,
+        "endTime": 128,
+        "muteOriginal": true
+      },
+      "annotations": [
+        {
+          "kind": "text",
+          "x": 50,
+          "y": 6,
+          "text": "Scan -> Verdict Table -> Stale Fix",
+          "fontSize": 42,
+          "startFrame": 0,
+          "endFrame": 750,
+          "color": "#4CAF50"
+        },
+        {
+          "kind": "box",
+          "x": 12,
+          "y": 38,
+          "width": 76,
+          "height": 30,
+          "startFrame": 180,
+          "endFrame": 450,
+          "color": "#F44336",
+          "strokeWidth": 3,
+          "opacity": 0.75
+        },
+        {
+          "kind": "text",
+          "x": 50,
+          "y": 94,
+          "text": "!! STALE model flagged",
+          "fontSize": 46,
+          "startFrame": 180,
+          "endFrame": 450,
+          "color": "#F44336"
+        },
+        {
+          "kind": "box",
+          "x": 12,
+          "y": 45,
+          "width": 76,
+          "height": 40,
+          "startFrame": 480,
+          "endFrame": 750,
+          "color": "#4CAF50",
+          "strokeWidth": 3,
+          "opacity": 0.8
+        },
+        {
+          "kind": "text",
+          "x": 50,
+          "y": 94,
+          "text": "File + line + fix",
+          "fontSize": 44,
+          "startFrame": 480,
+          "endFrame": 750,
+          "color": "#4CAF50"
+        }
+      ]
+    },
+    {
+      "type": "screenRecording",
+      "narration": "Action item two. Task fit. Model audit checks whether the right weight class is handling each job. It flags cheap models doing complex reasoning, and expensive models doing trivial classification. Wrong model equals wasted budget or degraded quality. Every mismatch comes with a swap recommendation.",
+      "props": {
+        "clip": "clips/model-audit-revised.mp4",
+        "startTime": 140,
+        "endTime": 165,
+        "muteOriginal": true
+      },
+      "annotations": [
+        {
+          "kind": "text",
+          "x": 50,
+          "y": 6,
+          "text": "Action Item 2: Task Fit",
+          "fontSize": 46,
+          "startFrame": 0,
+          "endFrame": 750,
+          "color": "#FF9800"
+        },
+        {
+          "kind": "box",
+          "x": 12,
+          "y": 30,
+          "width": 76,
+          "height": 50,
+          "startFrame": 240,
+          "endFrame": 750,
+          "color": "#FF9800",
+          "strokeWidth": 3,
+          "opacity": 0.7
+        },
+        {
+          "kind": "text",
+          "x": 50,
+          "y": 94,
+          "text": "Wrong weight class = wasted spend",
+          "fontSize": 40,
+          "startFrame": 240,
+          "endFrame": 750,
+          "color": "#FF9800"
+        }
+      ]
+    },
+    {
+      "type": "screenRecording",
+      "narration": "Action item three. Cost and accuracy. This sweep cross-references your actual token spend against what the job needs. It catches overpaying, prompt inefficiency, and accuracy regressions. Every finding comes with a savings estimate so you can prioritize the fixes that move the needle first.",
+      "props": {
+        "clip": "clips/model-audit-revised.mp4",
+        "startTime": 180,
+        "endTime": 205,
+        "muteOriginal": true
+      },
+      "annotations": [
+        {
+          "kind": "text",
+          "x": 50,
+          "y": 6,
+          "text": "Action Item 3: Cost + Accuracy",
+          "fontSize": 46,
+          "startFrame": 0,
+          "endFrame": 750,
+          "color": "#00BCD4"
+        },
+        {
+          "kind": "box",
+          "x": 12,
+          "y": 30,
+          "width": 76,
+          "height": 50,
+          "startFrame": 240,
+          "endFrame": 750,
+          "color": "#00BCD4",
+          "strokeWidth": 3,
+          "opacity": 0.7
+        },
+        {
+          "kind": "text",
+          "x": 50,
+          "y": 94,
+          "text": "Prioritized by savings impact",
+          "fontSize": 42,
+          "startFrame": 240,
+          "endFrame": 750,
+          "color": "#00BCD4"
+        }
+      ]
+    },
+    {
+      "type": "callToAction",
+      "narration": "Stop guessing which models you are running. Run slash model-audit and know in two minutes.",
+      "props": {
+        "heading": "Run /model-audit today",
+        "buttonText": "Try it in Claude Code",
+        "url": "https://claude.com/claude-code"
+      }
+    }
+  ]
+}
