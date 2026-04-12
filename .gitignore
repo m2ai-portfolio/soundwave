@@ -14,6 +14,7 @@ data/soundwave.db-shm
 # Large media assets (use rclone gdrive: for backup)
 public/clips/
 public/assets/gstack/
+reference/*.mp4
 
 # Remotion
 out
