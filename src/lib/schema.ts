@@ -128,6 +128,25 @@ const screenRecordingSceneSchema = z.object({
   }),
 });
 
+const pipVideoSceneSchema = z.object({
+  type: z.literal("pipVideo"),
+  narration: z.string(),
+  audioFile: z.string().optional(),
+  annotations: annotationsSchema,
+  props: z.object({
+    mainClip: z.string(),
+    pipClip: z.string(),
+    mainStartTime: z.number().optional(),
+    pipStartTime: z.number().optional(),
+    pipPosition: z.enum(["bottom-right", "bottom-left", "top-right", "top-left"]).optional(),
+    pipScale: z.number().min(0.05).max(0.9).optional(),
+    pipMarginPct: z.number().min(0).max(20).optional(),
+    pipBorderColor: z.string().optional(),
+    pipBorderWidth: z.number().optional(),
+    muteOriginal: z.boolean().optional(),
+  }),
+});
+
 const asciinemaSceneSchema = z.object({
   type: z.literal("asciinema"),
   narration: z.string(),
@@ -150,6 +169,7 @@ const sceneSchema = z.discriminatedUnion("type", [
   showcaseSceneSchema,
   ctaSceneSchema,
   screenRecordingSceneSchema,
+  pipVideoSceneSchema,
   asciinemaSceneSchema,
 ]);
 

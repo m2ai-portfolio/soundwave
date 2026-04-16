@@ -5,6 +5,7 @@ import { TitleScene } from "../scenes/TitleScene";
 import { ShowcaseScene } from "../scenes/ShowcaseScene";
 import { CallToActionScene } from "../scenes/CallToActionScene";
 import { ScreenRecordingScene } from "../scenes/ScreenRecordingScene";
+import { PipVideoScene } from "../scenes/PipVideoScene";
 import { AsciinemaScene } from "../scenes/AsciinemaScene";
 import { AnnotationOverlay } from "../components/common/AnnotationOverlay";
 
@@ -28,6 +29,8 @@ const SceneRenderer: React.FC<{
       return <CallToActionScene props={scene.props} theme={resolved} />;
     case "screenRecording":
       return <ScreenRecordingScene props={scene.props} theme={resolved} />;
+    case "pipVideo":
+      return <PipVideoScene props={scene.props} theme={resolved} />;
     case "asciinema":
       return <AsciinemaScene props={scene.props} theme={resolved} />;
     default:

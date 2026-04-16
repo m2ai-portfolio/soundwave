@@ -45,6 +45,12 @@ export function computeSceneTiming(
       const start = scene.props.startTime || 0;
       const end = scene.props.endTime || clipDuration;
       durationSeconds = end - start;
+    } else if (scene.type === "pipVideo") {
+      // Duration = remaining length of main clip from mainStartTime
+      const mainClipPath = path.resolve("public", scene.props.mainClip);
+      const mainClipDuration = getVideoDurationSeconds(mainClipPath);
+      const start = scene.props.mainStartTime || 0;
+      durationSeconds = mainClipDuration - start;
     } else if (scene.type === "asciinema") {
       // Parse cast file to determine playback duration
       const castPath = path.resolve("public", scene.props.cast);

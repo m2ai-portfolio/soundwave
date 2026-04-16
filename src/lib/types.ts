@@ -47,6 +47,19 @@ export interface ScreenRecordingProps {
   muteOriginal?: boolean;    // strip original audio (default true)
 }
 
+export interface PipVideoProps {
+  mainClip: string;                                         // background clip (path in public/clips/)
+  pipClip: string;                                          // inset clip (path in public/clips/)
+  mainStartTime?: number;                                   // seconds into main clip to start
+  pipStartTime?: number;                                    // seconds into pip clip to start
+  pipPosition?: "bottom-right" | "bottom-left" | "top-right" | "top-left";
+  pipScale?: number;                                        // fraction of frame width (default 0.25)
+  pipMarginPct?: number;                                    // margin from edge as percent (default 3)
+  pipBorderColor?: string;                                  // border color for inset (default theme primary)
+  pipBorderWidth?: number;                                  // border width in px (default 3)
+  muteOriginal?: boolean;                                   // strip audio from both (default true)
+}
+
 // --- Annotation Types (percentage-based coordinates 0-100) ---
 
 export interface ArrowAnnotation {
@@ -149,6 +162,14 @@ export interface ScreenRecordingScene {
   props: ScreenRecordingProps;
 }
 
+export interface PipVideoScene {
+  type: "pipVideo";
+  narration: string;
+  audioFile?: string;
+  annotations?: Annotation[];
+  props: PipVideoProps;
+}
+
 export interface AsciinemaScene {
   type: "asciinema";
   narration: string;
@@ -157,7 +178,7 @@ export interface AsciinemaScene {
   props: AsciinemaProps;
 }
 
-export type Scene = TitleScene | ShowcaseScene | CallToActionScene | ScreenRecordingScene | AsciinemaScene;
+export type Scene = TitleScene | ShowcaseScene | CallToActionScene | ScreenRecordingScene | PipVideoScene | AsciinemaScene;
 
 // --- Full Script ---
 

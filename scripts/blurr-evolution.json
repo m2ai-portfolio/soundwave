@@ -38,13 +38,97 @@
       "props": {
         "clip": "clips/blurr/seedance_v2_f1tenth.mp4",
         "muteOriginal": true
-      }
+      },
+      "annotations": [
+        {
+          "kind": "text",
+          "x": 4,
+          "y": 14,
+          "text": "LIDAR",
+          "fontSize": 38,
+          "color": "#00e5ff",
+          "startFrame": 60,
+          "endFrame": 180
+        },
+        {
+          "kind": "arrow",
+          "x1": 14,
+          "y1": 16,
+          "x2": 42,
+          "y2": 32,
+          "color": "#00e5ff",
+          "strokeWidth": 0.4,
+          "startFrame": 60,
+          "endFrame": 180
+        },
+        {
+          "kind": "text",
+          "x": 74,
+          "y": 26,
+          "text": "VESC",
+          "fontSize": 38,
+          "color": "#00e5ff",
+          "startFrame": 180,
+          "endFrame": 300
+        },
+        {
+          "kind": "arrow",
+          "x1": 74,
+          "y1": 28,
+          "x2": 58,
+          "y2": 48,
+          "color": "#00e5ff",
+          "strokeWidth": 0.4,
+          "startFrame": 180,
+          "endFrame": 300
+        },
+        {
+          "kind": "text",
+          "x": 4,
+          "y": 78,
+          "text": "BATTERY PACK",
+          "fontSize": 38,
+          "color": "#00e5ff",
+          "startFrame": 300,
+          "endFrame": 420
+        },
+        {
+          "kind": "arrow",
+          "x1": 22,
+          "y1": 76,
+          "x2": 48,
+          "y2": 68,
+          "color": "#00e5ff",
+          "strokeWidth": 0.4,
+          "startFrame": 300,
+          "endFrame": 420
+        },
+        {
+          "kind": "text",
+          "x": 56,
+          "y": 92,
+          "text": "1:10 SCALE AUTONOMOUS",
+          "fontSize": 28,
+          "color": "#ffffff",
+          "opacity": 0.85,
+          "startFrame": 30,
+          "endFrame": 440
+        }
+      ]
     },
     {
       "type": "screenRecording",
       "narration": "",
       "props": {
         "clip": "clips/blurr/seedance_v3_race_engineering.mp4",
+        "muteOriginal": true
+      }
+    },
+    {
+      "type": "screenRecording",
+      "narration": "",
+      "props": {
+        "clip": "clips/blurr/seedance_v5_sensor_zones.mp4",
         "muteOriginal": true
       }
     },
@@ -65,18 +149,16 @@
       }
     },
     {
-      "type": "screenRecording",
+      "type": "pipVideo",
       "narration": "",
       "props": {
-        "clip": "clips/blurr/pdr_foggy_mountain.mp4",
-        "muteOriginal": true
-      }
-    },
-    {
-      "type": "screenRecording",
-      "narration": "",
-      "props": {
-        "clip": "clips/blurr/pdr_mountain_vista.mp4",
+        "mainClip": "clips/blurr/pdr_foggy_mountain.mp4",
+        "pipClip": "clips/blurr/seedance_v6_sim_racing.mp4",
+        "pipPosition": "bottom-right",
+        "pipScale": 0.25,
+        "pipMarginPct": 3,
+        "pipBorderColor": "#00e5ff",
+        "pipBorderWidth": 3,
         "muteOriginal": true
       }
     },

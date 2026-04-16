@@ -29,9 +29,10 @@ CLIPS=(
   "clips/blurr/seedance_v2_f1tenth.mp4"
   "clips/blurr/seedance_v3_race_engineering.mp4"
   "clips/blurr/seedance_v4_blurr.mp4"
+  "clips/blurr/seedance_v5_sensor_zones.mp4"
+  "clips/blurr/seedance_v6_sim_racing.mp4"
   "clips/blurr/pdr_switchback_071g.mp4"
   "clips/blurr/pdr_foggy_mountain.mp4"
-  "clips/blurr/pdr_mountain_vista.mp4"
   "clips/blurr/dji_orbit_c8.mp4"
 )
 
