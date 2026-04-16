@@ -29,6 +29,17 @@
       "narration": "",
       "props": {
         "clip": "clips/blurr/seedance_v1_heritage.mp4",
+        "startTime": 0,
+        "endTime": 5,
+        "muteOriginal": true
+      }
+    },
+    {
+      "type": "screenRecording",
+      "narration": "",
+      "props": {
+        "clip": "clips/blurr/seedance_v1_heritage.mp4",
+        "startTime": 8,
         "muteOriginal": true
       }
     },
@@ -129,6 +140,18 @@
       "narration": "",
       "props": {
         "clip": "clips/blurr/seedance_v5_sensor_zones.mp4",
+        "startTime": 0,
+        "endTime": 13,
+        "muteOriginal": true
+      }
+    },
+    {
+      "type": "screenRecording",
+      "narration": "",
+      "props": {
+        "clip": "clips/blurr/dji_orbit_c8.mp4",
+        "startTime": 7.67,
+        "endTime": 11.67,
         "muteOriginal": true
       }
     },
@@ -159,14 +182,6 @@
         "pipMarginPct": 3,
         "pipBorderColor": "#00e5ff",
         "pipBorderWidth": 3,
-        "muteOriginal": true
-      }
-    },
-    {
-      "type": "screenRecording",
-      "narration": "",
-      "props": {
-        "clip": "clips/blurr/dji_orbit_c8.mp4",
         "muteOriginal": true
       }
     },
