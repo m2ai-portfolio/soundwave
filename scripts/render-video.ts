@@ -91,15 +91,23 @@ export function computeSceneTiming(
       audioPath = `audio/${path.basename(path.dirname(audio.filePath))}/${path.basename(audio.filePath)}`;
     }
 
+    // Cross-fade support: if scene declares overlapPrevFrames, shift its start
+    // back to overlap the previous scene by that many frames.
+    const overlap =
+      (scene.type === "screenRecording" || scene.type === "pipVideo")
+        ? (scene.props as { overlapPrevFrames?: number }).overlapPrevFrames ?? 0
+        : 0;
+    const startFrame = i > 0 && overlap > 0 ? currentFrame - overlap : currentFrame;
+
     sceneTiming.push({
       scene,
       audioDurationMs,
       audioPath,
-      startFrame: currentFrame,
+      startFrame,
       durationInFrames,
     });
 
-    currentFrame += durationInFrames;
+    currentFrame = startFrame + durationInFrames;
   }
 
   return { sceneTiming, totalFrames: currentFrame };

@@ -45,6 +45,7 @@ export interface ScreenRecordingProps {
   startTime?: number;        // seconds into clip to start (default 0)
   endTime?: number;          // seconds into clip to end (default: end of clip)
   muteOriginal?: boolean;    // strip original audio (default true)
+  overlapPrevFrames?: number;// frames to overlap with previous scene (cross-fade). Default 0.
 }
 
 export interface PipVideoProps {
@@ -58,6 +59,7 @@ export interface PipVideoProps {
   pipBorderColor?: string;                                  // border color for inset (default theme primary)
   pipBorderWidth?: number;                                  // border width in px (default 3)
   muteOriginal?: boolean;                                   // strip audio from both (default true)
+  overlapPrevFrames?: number;                               // frames to overlap with previous scene (cross-fade). Default 0.
 }
 
 // --- Annotation Types (percentage-based coordinates 0-100) ---

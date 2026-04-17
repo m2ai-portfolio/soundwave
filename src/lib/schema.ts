@@ -125,6 +125,7 @@ const screenRecordingSceneSchema = z.object({
     startTime: z.number().optional(),
     endTime: z.number().optional(),
     muteOriginal: z.boolean().optional(),
+    overlapPrevFrames: z.number().int().min(0).optional(),
   }),
 });
 
@@ -144,6 +145,7 @@ const pipVideoSceneSchema = z.object({
     pipBorderColor: z.string().optional(),
     pipBorderWidth: z.number().optional(),
     muteOriginal: z.boolean().optional(),
+    overlapPrevFrames: z.number().int().min(0).optional(),
   }),
 });
 

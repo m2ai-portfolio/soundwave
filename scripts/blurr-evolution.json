@@ -48,6 +48,8 @@
       "narration": "",
       "props": {
         "clip": "clips/blurr/seedance_v2_f1tenth.mp4",
+        "startTime": 0,
+        "endTime": 13,
         "muteOriginal": true
       },
       "annotations": [
@@ -162,7 +164,8 @@
         "clip": "clips/blurr/dji_orbit_c8.mp4",
         "startTime": 9.34,
         "endTime": 11.34,
-        "muteOriginal": true
+        "muteOriginal": true,
+        "overlapPrevFrames": 10
       }
     },
     {
@@ -170,7 +173,7 @@
       "narration": "",
       "props": {
         "clip": "clips/blurr/seedance_v4_blurr.mp4",
-        "startTime": 1.7,
+        "startTime": 2.5,
         "endTime": 13.7,
         "muteOriginal": true
       }
